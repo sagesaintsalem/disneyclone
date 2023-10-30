@@ -30,7 +30,7 @@ function ForYou() {
     
 
     const getFilms = () => {
-        GlobalApi.getMyFilms.then(res=>{
+        GlobalApi.getDisneyFilms.then(res=>{
             console.log(res.data.results);
             allMyFilms.push(...res.data.results)
         }).then(

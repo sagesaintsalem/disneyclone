@@ -27,7 +27,7 @@ function Slider() {
     
 
     const getDisney = () => {
-        GlobalApi.getDisneyFilms1.then(res1=>{
+        GlobalApi.getMyFilms.then(res1=>{
             console.log(res1.data.results);
             all3Requests.push(...res1.data.results)
         }).then(
