@@ -41,9 +41,7 @@ function TVSeries() {
     const myImgArray = myTVList.map(show => IMAGE_URL + show.backdrop_path)
     const myImgArrayShort = myImgArray.slice(0, 10)
 
-    console.log(allMyTV)
-    console.log(myImgArray)
-
+  
   
     const prevSlide = () => {
         const isFirstSlide = myCurrentIndex === 0;
@@ -69,9 +67,10 @@ function TVSeries() {
     
 
   return (
-    <>
-    <div className='text-3xl text-white font-semibold m-auto px-3 py-3'>
-        <h2>TV Series</h2>
+     myTVList.length > 0? 
+     <>
+     <div className='text-3xl text-white font-semibold m-auto px-3 py-3'>
+     <h2>TV Series</h2>
     </div>
 
 
@@ -83,13 +82,13 @@ function TVSeries() {
             </div>
 
             <div className="flex absolute right-[1%] top-[90%] py-7 z-50">
-              <div className='flex text-xl cursor-pointer'>
-              {myImgArrayShort.map((item, index) => (
+            <div className='flex text-xl cursor-pointer'>
+            {myImgArrayShort.map((item, index) => (
                 <GoDotFill className={`${
                     index === myCurrentIndex ? "text-white" : "text-gray-500"
-                  }`}/>
-              ))}
-              </div>
+                }`}/>
+            ))}
+            </div>
             </div>
             
             
@@ -136,7 +135,8 @@ function TVSeries() {
 
         
 
-    </>
+ </>
+ :null
   )
 }
 

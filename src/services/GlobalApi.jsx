@@ -14,7 +14,7 @@ const movieBaseURL = 'https://api.themoviedb.org/3/discover/movie?include_adult=
 
 const tvBaseURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en&page=1&sort_by=popularity.desc'
 
-    const getDisneyFilms = axios.get(movieBaseURL+'&with_companies=disney&with_genres=16', options)
+    const getDisneyFilms = axios.get(movieBaseURL+'&with_companies=disney', options)
     // .then(response => console.log(response))
     // .then(response => response.data)
     // // .catch(err => console.error(err));
@@ -22,14 +22,14 @@ const tvBaseURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&
 
     const getMyFilms = axios.get(movieBaseURL, options)
       const getMovieByGenreId =(id) => 
-      axios.get(movieBaseURL+"&with_genres="+id)
+      axios.get(movieBaseURL+"&with_genres="+id, options)
     // .then(response => response.data)
     // .then(response => console.log(response))
     // .catch(err => console.error(err));
 
     const getMyTV = axios.get(tvBaseURL, options)
       const getTVByGenreId =(id) => 
-      axios.get(tvBaseURL+"&with_genres="+id)
+      axios.get(tvBaseURL+"&with_genres="+id, options)
     // .then(response => response.data)
     // // .then(response => console.log(response))
     // .catch(err => console.error(err));
@@ -38,5 +38,7 @@ const tvBaseURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&
 export default {
     getDisneyFilms,
     getMyFilms,
-    getMyTV
+    getMyTV,
+    getMovieByGenreId,
+    getTVByGenreId
 }

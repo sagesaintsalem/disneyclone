@@ -41,8 +41,7 @@ function ForYou() {
     const myImgArray = myMovieList.map(movie => IMAGE_URL + movie.backdrop_path)
     const myImgArrayShort = myImgArray.slice(0, 10)
 
-    console.log(allMyFilms)
-    console.log(myImgArray)
+   
 
   
     const prevSlide = () => {
@@ -73,6 +72,8 @@ function ForYou() {
 
 
   return (
+    myMovieList.length > 0? 
+
     <>
     <div className='text-3xl text-white font-semibold m-auto px-3 py-3'>
         <h2>Recommended For You</h2>
@@ -87,13 +88,13 @@ function ForYou() {
             </div>
 
             <div className="flex absolute right-[1%] top-[90%] py-7 z-50">
-              <div className='flex text-xl cursor-pointer'>
-              {myImgArrayShort.map((item, index) => (
+            <div className='flex text-xl cursor-pointer'>
+            {myImgArrayShort.map((item, index) => (
                 <GoDotFill className={`${
                     index === myCurrentIndex ? "text-white" : "text-gray-500"
-                  }`}/>
-              ))}
-              </div>
+                }`}/>
+            ))}
+            </div>
             </div>
             
             
@@ -142,6 +143,8 @@ function ForYou() {
 
 
     </>
+
+    : null
   )
 }
 
