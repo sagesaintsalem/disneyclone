@@ -12,9 +12,9 @@ const options = {
   
 const movieBaseURL = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en&page=1&sort_by=popularity.desc&without_genres=18'
 
-const tvBaseURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en&page=1&sort_by=popularity.desc'
+const tvBaseURL = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&with_original_language=en&page=1&sort_by=popularity.desc'
 
-    const getDisneyFilms = axios.get(movieBaseURL+'&with_companies=disney', options)
+    const getDisneyFilms = axios.get(movieBaseURL+'&with_companies=disney&with_genres=16', options)
     // .then(response => console.log(response))
     // .then(response => response.data)
     // // .catch(err => console.error(err));

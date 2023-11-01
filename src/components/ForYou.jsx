@@ -1,7 +1,6 @@
 import React from 'react'
 import GlobalApi from '../services/GlobalApi'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-import {GoDotFill} from "react-icons/go"
 import { useState, useEffect } from 'react';
 
 const IMAGE_URL="https://image.tmdb.org/t/p/original";
@@ -87,15 +86,7 @@ function ForYou() {
                 <HiChevronLeft />
             </div>
 
-            <div className="flex absolute right-[1%] top-[90%] py-7 z-50">
-            <div className='flex text-xl cursor-pointer'>
-            {myImgArrayShort.map((item, index) => (
-                <GoDotFill className={`${
-                    index === myCurrentIndex ? "text-white" : "text-gray-500"
-                }`}/>
-            ))}
-            </div>
-            </div>
+           
             
             
             <div className='bg-black/20 absolute bottom-[-14%] -translate-x-0 translate-y-[-5%] right-3 text-3xl rounded-full p-2 text-white  cursor-pointer z-50' onClick={nextSlide}>

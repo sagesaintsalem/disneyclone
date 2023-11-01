@@ -1,7 +1,6 @@
 import React from 'react'
 import GlobalApi from '../services/GlobalApi'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-import {GoDotFill} from "react-icons/go"
 import { useState, useEffect } from 'react';
 
 const IMAGE_URL="https://image.tmdb.org/t/p/original";
@@ -81,53 +80,44 @@ function TVSeries() {
                 <HiChevronLeft />
             </div>
 
-            <div className="flex absolute right-[1%] top-[90%] py-7 z-50">
-            <div className='flex text-xl cursor-pointer'>
-            {myImgArrayShort.map((item, index) => (
-                <GoDotFill className={`${
-                    index === myCurrentIndex ? "text-white" : "text-gray-500"
-                }`}/>
-            ))}
-            </div>
-            </div>
             
             
             <div className='bg-black/20 absolute bottom-[-74%] -translate-x-0 translate-y-[-5%] right-3 text-3xl rounded-full p-2 text-white  cursor-pointer z-50' onClick={nextSlide}>
                 <HiChevronRight />
             </div>
 
-            <div className='flex gap-3 transition-all duration-500 w-screen z-0'>
+            <div className='flex gap-3 transition-all duration-500 z-0'>
 
-            <div  className='relative '>
-                    <img src={myImgArrayShort[myPrevIndex]} className='w-screen h-[235px] rounded-2xl bg-cover '/>
+            <div  className='relative  '>
+                    <img src={myImgArrayShort[myPrevIndex]} className='rounded-2xl bg-center'/>
 
-                    <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
+                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
                     <h2 className='py-24'>{myTVList[myPrevIndex].name}</h2>
-                    </div>
+                    </div> */}
                 </div>
 
                 <span  className='relative '>
-                    <img src={myImgArrayShort[myCurrentIndex]} className='w-screen h-[235px] rounded-2xl bg-cover '/>
+                    <img src={myImgArrayShort[myCurrentIndex]} className='bg-center rounded-2xl '/>
 
-                    <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
+                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
                     <h2 className='py-24'>{myTVList[myCurrentIndex].name}</h2>
-                    </div>
+                    </div> */}
                 </span>
 
                 <span  className='relative '>
-                    <img src={myImgArrayShort[myNextIndex]} className='w-screen h-[235px]  rounded-2xl bg-cover '/>
+                    <img src={myImgArrayShort[myNextIndex]} className='bg-center rounded-2xl '/>
 
-                    <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
+                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
                     <h2 className='py-24'>{myTVList[myNextIndex].name}</h2>
-                    </div>
+                    </div> */}
                 </span>
 
                 <span  className='relative '>
-                    <img src={myImgArrayShort[myFourthIndex]} className='w-screen h-[235px] rounded-2xl bg-cover '/>
+                    <img src={myImgArrayShort[myFourthIndex]} className=' bg-center rounded-2xl  '/>
 
-                    <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
+                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
                     <h2 className='py-24'>{myTVList[myFourthIndex].name}</h2>
-                    </div>
+                    </div> */}
                 </span>
 
             </div>

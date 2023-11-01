@@ -11,7 +11,7 @@ import GenreList from './components/GenreList'
 function App() {
   
   return (
-    <div className='m-0 space-y-4'>
+    <div className='m-0 space-y-3'>
       <Header />
       <Slider/>
       <ProdHouse />
