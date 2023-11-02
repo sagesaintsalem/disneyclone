@@ -30,7 +30,7 @@ function ForYou() {
         )
     }
 
-    const myImgArray = myMovieList.map(movie => IMAGE_URL + movie.backdrop_path)
+    
     
     const elementPoint = useRef(null);
 
@@ -65,7 +65,7 @@ function ForYou() {
                     <HiChevronLeft />
         </div>
 
-        <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none px-3 py-6 transition-all duration-200 ease-in cursor-pointer'>
+        <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none scroll-smooth px-3 py-6 mx-4 transition-all duration-200 ease-in cursor-pointer'>
       {myMovieList.map((item, index)=>(
         <ForYouItem film={item} />
       ))}

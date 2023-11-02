@@ -48,7 +48,7 @@ function TVSeries() {
   return (
     
      <>
-     <div className='text-3xl text-white font-semibold m-auto px-3 py-2'>
+     <div className='text-3xl text-white font-semibold m-auto px-3 pt-1 pb-0'>
      <h2>TV Series</h2>
     </div>
 
@@ -61,7 +61,7 @@ function TVSeries() {
                 <HiChevronLeft />
             </div>
 
-            <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none px-3 py-6 transition-all duration-200 ease-in cursor-pointer'>
+            <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none scroll-smooth px-3 py-6 mx-4 transition-all duration-200 ease-in cursor-pointer'>
       {myTVList.map((item, index)=>(
         <TVShow show={item} />
       ))}

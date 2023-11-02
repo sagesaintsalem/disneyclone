@@ -36,7 +36,7 @@ function MovieListings({genreId}) {
   left-3 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftLeft(elementPoint.current)}/>
         
     
-    <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none px-3 py-6 transition-all duration-200 ease-in cursor-pointer'>
+    <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none scroll-smooth px-3 py-6 mx-4 transition-all duration-200 ease-in cursor-pointer'>
       {movieListing.map((item, index)=>(
         <MovieListCard  movie={item} />
       ))}

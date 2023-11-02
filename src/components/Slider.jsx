@@ -51,16 +51,16 @@ function Slider() {
     
     
     
-    <div className='relative overflow-x-auto m-auto px-3  '>
+    <div className='relative overflow-x-auto m-auto px-3 py-2 '>
         
         
-            <HiChevronDoubleLeft className=' bg-black/20 absolute top-56 z-20 w-11 h-11 left-3 rounded-full p-2 text-white  cursor-pointer text-3xl' onClick={()=>shiftLeft(elementPoint.current)}/>
+            <HiChevronDoubleLeft className=' bg-black/20 absolute top-64 z-20 w-11 h-11 left-3 rounded-full p-2 text-white  cursor-pointer text-3xl' onClick={()=>shiftLeft(elementPoint.current)}/>
         
 
       
         
       
-       <div ref={elementPoint} className='flex gap-9 px-4 pt-0 overflow-x-auto scrollbar-none  transition-all duration-200 ease-in cursor-pointer pb-10 '>
+       <div ref={elementPoint} className='flex gap-10 px-4 pt-6 overflow-x-auto scrollbar-none scroll-smooth transition-all duration-200 ease-in cursor-pointer pb-10 '>
             {movieList.map((item, index)=>(
                 <SliderCard sliderfilm={item}/>
                 
@@ -69,7 +69,7 @@ function Slider() {
 
       
        
-            <HiChevronDoubleRight className=' bg-black/20 absolute top-56 w-11 h-11 z-10 right-3 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftRight(elementPoint.current)} />
+            <HiChevronDoubleRight className=' bg-black/20 absolute top-64 w-11 h-11 z-10 right-3 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftRight(elementPoint.current)} />
        
 
 
