@@ -1,7 +1,8 @@
 import React from 'react'
 import GlobalApi from '../services/GlobalApi'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import TVShow from './TVShow';
 
 const IMAGE_URL="https://image.tmdb.org/t/p/original";
 
@@ -10,13 +11,7 @@ function TVSeries() {
 
     const [myTVList, setMyTVList] = useState([]);
 
-    const [myCurrentIndex, setMyCurrentIndex] = useState(1);
-
-    const[myNextIndex, setMyNextIndex] = useState(1)
     
-    const[myPrevIndex, setMyPrevIndex] = useState(19)
-
-    const[myFourthIndex, setMyFourthIndex] = useState(4)
 
     
 
@@ -24,109 +19,66 @@ function TVSeries() {
         getTV();
     }, [])
 
-    const allMyTV = []
+  
 
     
 
     const getTV = () => {
         GlobalApi.getMyTV.then(res=>{
-            console.log(res.data.results);
-            allMyTV.push(...res.data.results)
-        }).then(
-            setMyTVList(allMyTV)
+            setMyTVList(res.data.results)}
         )
     }
 
     const myImgArray = myTVList.map(show => IMAGE_URL + show.backdrop_path)
-    const myImgArrayShort = myImgArray.slice(0, 10)
+   
+    const elementPoint = useRef(null);
 
-  
-  
-    const prevSlide = () => {
-        const isFirstSlide = myCurrentIndex === 0;
-        const newIndex = isFirstSlide ? myImgArray.length-1: myCurrentIndex-1;
-        setMyCurrentIndex(newIndex);
-        setMyPrevIndex(newIndex-1)
-        setMyNextIndex(newIndex+1)
-        setMyFourthIndex(newIndex+2)
-    }
+  const shiftLeft=(element)=>{
+    element.scrollLeft-=500;
+  }
 
-
-    const nextSlide = () => {
-        const isLastSlide = myCurrentIndex === myImgArray.length -1;
-        const newIndex = isLastSlide ? 0: myCurrentIndex+1;
-        setMyCurrentIndex(newIndex);
-        setMyPrevIndex(newIndex-1)
-        setMyNextIndex(newIndex+1)
-        setMyFourthIndex(newIndex+2)
-
-    }
+  const shiftRight=(element)=>{
+    element.scrollLeft+=500;
+    
+  }
     
   
     
 
   return (
-     myTVList.length > 0? 
+    
      <>
-     <div className='text-3xl text-white font-semibold m-auto px-3 py-3'>
+     <div className='text-3xl text-white font-semibold m-auto px-3 py-2'>
      <h2>TV Series</h2>
     </div>
 
 
 
-    <div className='flex h-[410px] w-screen  py-6 px-3 '>
+    <div className='relative overflow-x-auto '>
 
-    <div className='bg-black/20 absolute bottom-[-74%]  -translate-x-0 translate-y-[-5%] left-3 text-3xl rounded-full p-2 text-white  cursor-pointer z-50' onClick={prevSlide}>
+    <div className='bg-black/20 absolute top-40 z-10 w-11 h-11
+  left-3 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftLeft(elementPoint.current)}>
                 <HiChevronLeft />
             </div>
 
+            <div ref={elementPoint} className='flex flex-row gap-4 overflow-x-auto scrollbar-none px-3 py-6 transition-all duration-200 ease-in cursor-pointer'>
+      {myTVList.map((item, index)=>(
+        <TVShow show={item} />
+      ))}
+    </div>
             
             
-            <div className='bg-black/20 absolute bottom-[-74%] -translate-x-0 translate-y-[-5%] right-3 text-3xl rounded-full p-2 text-white  cursor-pointer z-50' onClick={nextSlide}>
+            <div className='bg-black/20 absolute right-0 top-40 w-11 h-11 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftRight(elementPoint.current)} >
                 <HiChevronRight />
             </div>
 
-            <div className='flex gap-3 transition-all duration-500 z-0'>
-
-            <div  className='relative  '>
-                    <img src={myImgArrayShort[myPrevIndex]} className='rounded-2xl bg-center'/>
-
-                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
-                    <h2 className='py-24'>{myTVList[myPrevIndex].name}</h2>
-                    </div> */}
-                </div>
-
-                <span  className='relative '>
-                    <img src={myImgArrayShort[myCurrentIndex]} className='bg-center rounded-2xl '/>
-
-                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
-                    <h2 className='py-24'>{myTVList[myCurrentIndex].name}</h2>
-                    </div> */}
-                </span>
-
-                <span  className='relative '>
-                    <img src={myImgArrayShort[myNextIndex]} className='bg-center rounded-2xl '/>
-
-                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
-                    <h2 className='py-24'>{myTVList[myNextIndex].name}</h2>
-                    </div> */}
-                </span>
-
-                <span  className='relative '>
-                    <img src={myImgArrayShort[myFourthIndex]} className=' bg-center rounded-2xl  '/>
-
-                    {/* <div className='hover:bg-black/40 hover:text-white text-center font-semibold absolute top-0 py-5 h-[235px] text-white/0 bg-black/0 w-full text-xl rounded-xl' > 
-                    <h2 className='py-24'>{myTVList[myFourthIndex].name}</h2>
-                    </div> */}
-                </span>
-
-            </div>
+            
         </div>
 
         
 
  </>
- :null
+ 
   )
 }
 
