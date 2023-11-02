@@ -10,7 +10,7 @@ function ForYouItem({film}) {
   return (
     <>
         <img onClick={()=>setIsOverlay(!isOverlay)} src={IMAGE_URL+film.poster_path} className='grow hover:scale-110 hover:outline outline-3-grey/5 w-screen h-[345px] rounded-2xl bg-cover' />
-        <Overlay className='grow scale-110 duration-200' isOpen={isOverlay} onClose={() => setIsOverlay(!isOverlay) } children={film} />
+        <Overlay  isOpen={isOverlay} onClose={() => setIsOverlay(!isOverlay) } children={film} />
     </>
   )
 }
