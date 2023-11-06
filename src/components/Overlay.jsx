@@ -10,7 +10,7 @@ function Overlay({isOpen, onClose, children}) {
    <div onClick={onClose}>
     {
         isOpen ? (
-            <div className=" absolute z-10 inset-0 bg-cover bg-gradient-to-r from-sky-950/90 via-blue-800 to-indigo-600/90  w-[1890px] h-[380px]" onClick={onClose} >
+            <div className=" absolute z-10 inset-0 bg-cover bg-gradient-to-r from-sky-950/90 via-blue-800 to-indigo-600/90  w-[1898px] h-[380px]" onClick={onClose} >
                 
                 <div className='flex flex-row my-4 justify-evenly'>
                     <div>

@@ -60,7 +60,7 @@ function ForYou() {
 
     <div className='relative overflow-x-auto'>
 
-        <div className='bg-black/20 absolute top-40 z-10 w-11 h-11
+        <div className='bg-black/50 absolute top-40 z-10 w-11 h-11
   left-3 text-3xl rounded-full p-2 text-white cursor-pointer' onClick={()=>shiftLeft(elementPoint.current)}>
                     <HiChevronLeft />
         </div>
@@ -72,7 +72,7 @@ function ForYou() {
     </div>
                 
                 
-        <div className='bg-black/20 absolute right-0 top-40 w-11 h-11 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftRight(elementPoint.current)}>
+        <div className='bg-black/50 absolute right-0 top-40 w-11 h-11 text-3xl rounded-full p-2 text-white  cursor-pointer' onClick={()=>shiftRight(elementPoint.current)}>
             <HiChevronRight />
         </div>
 
