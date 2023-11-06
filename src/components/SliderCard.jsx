@@ -5,7 +5,7 @@ function SliderCard({sliderfilm}) {
     <div className="grow hover:scale-110 transition duration-300 relative justify-center items-center ">
        <span className="opacity-0 hover:opacity-100 absolute  z-10 top-14 inset-0.5 rounded-2xl w-full h-full py-56">
        <h1 className=" font-bold  bg-black/50 text-center text-3xl ">{sliderfilm.title}</h1>
-       <p className=" rounded-2xl bg-black/50 text-center ">{sliderfilm.overview}</p>
+       <p className="  bg-black/50 text-center ">{sliderfilm.overview}</p>
        </span>
         
         <img src={IMAGE_URL+sliderfilm.backdrop_path} className=' rounded-2xl border-[2px] border-gray-600
